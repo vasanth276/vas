@@ -1,16 +1,30 @@
+#include <stdio.h>
 int main()
 {
-	int num[10],i,n,sum=0;
-    float avg;
-    printf("enter the number of elements:");
-    scanf("%d",& n);
-    printf("enter %d values\n",n);
-    for(i=0;i<n;i++)
+	char str[100];
+    int i=0,j,length=0;
+    printf("enter the string:\n");
+    gets(str);
+    for(;str[i]!='\0';)
     {
-        scanf("%d",& num[i]);
-        sum=sum+num[i];
+        length++;
+        i++;
     }
-    avg=sum*1.0/n;
-    printf("average=%f",avg);
+    i=0;
+    j=length-1;
+    for(;i<=j;)
+    {
+        if(str[i]==str[j])
+        {
+            i++;
+            j--;
+        }
+        else
+          break;
+    }
+    if(i>=j)
+        printf("palindrome");
+    else
+        printf("not palindrome");
     return 0;
 }
